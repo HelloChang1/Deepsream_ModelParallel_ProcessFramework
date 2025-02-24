@@ -1,0 +1,91 @@
+################################################################################
+# Copyright (c) 2022, NVIDIA CORPORATION. All rights reserved.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),
+# to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+################################################################################
+
+source-list:
+  #semicolon separated uri. For ex- uri1;uri2;uriN;
+  list: file:///data/vi.mp4;file://data/ir.mp4;
+
+tiler:
+  rows: 2
+  columns: 2
+  width: 2048
+  height: 1536
+
+
+streammux:
+  gpu-id: 0
+  batch-size: 2
+  batched-push-timeout: 40000
+  width: 1024
+  height: 768
+  sync-inputs: 1
+    #ronghe
+  live-source: 1
+  
+osd:
+  process-mode: 1
+  display-text: 1
+  display-bbox: 1
+
+sink:
+  qos: 0
+  #ronghe
+  sync: 1
+  
+
+streammux-b0:
+  gpu-id: 0
+  batch-size: 2
+  batched-push-timeout: 40000
+  width: 1024
+  height: 768
+  # sync-inputs: 1
+  # live-source: 1
+
+
+streammux-b1:
+  gpu-id: 0
+  batch-size: 2
+  batched-push-timeout: 40000
+  width: 1024
+  height: 768
+  # sync-inputs: 1
+  # live-source: 1
+
+
+# Inference using nvinfer:
+primary-gie-0:
+  plugin-type: 0
+  batch-size: 2
+  unique-id: 1
+  config-file-path: ./dstest3_pgie_config_0.yml
+
+primary-gie-1:
+  plugin-type: 0
+  batch-size: 2
+  unique-id: 2
+  config-file-path: ./dstest3_pgie_config_1.yml
+
+  
+# meta-mux:
+#   enable: 1
+#   config-file: /workspace/chang/deepstream_docker/sources/apps/sample_apps/deepstream-test3/metamux/config_metamux3.txt

@@ -1,0 +1,23 @@
+{
+ "configurations": [
+   {
+    "name": "Linux",
+    "includePath": [
+      "${workspaceFolder}/**",
+      "/usr/include/*",
+      "/usr/include/glib-2.0",
+      "/usr/include/gstreamer-1.0",
+      "/usr/lib/aarch64-linux-gnu/glib-2.0/include",
+      "/usr/local/cuda-11.4/targets/aarch64-linux/include",
+      "/opt/nvidia/deepstream/deepstream-6.3/sources/includes/",
+      "/opt/nvidia/deepstream/deepstream/sources/includes/cvcore_headers/",
+      "/opt/nvidia/deepstream/deepstream-6.3/sources/apps/apps-common/includes/",
+      "/usr/include/opencv4/"
+    ],
+    "defines": [],
+    "compilerPath": "/usr/bin/gcc",
+    "intelliSenseMode": "linux-gcc-arm64"
+   }
+ ],
+ "version": 4
+}
