@@ -1,11 +1,6 @@
-*****************************************************************************
-                Deepsream_ModelParallel_ProcessFramework
-                                 README
-*****************************************************************************
+# Deepsream_ModelParallel_ProcessFramework
 
-===============================================================================
-1. Prerequisites:
-===============================================================================
+## 1. Prerequisites
 
 Follow these procedures to use the deepstream-app application for native
 compilation.
@@ -23,9 +18,8 @@ You must have the following development packages installed
    sudo apt-get install libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev \
    libgstrtspserver-1.0-dev libx11-dev libjson-glib-dev libyaml-cpp-dev
 
-===============================================================================
-2. Main directory structure explain:
-===============================================================================
+
+## 2. Main directory structure explain
 ```
 |── data                        // engine file
 |── dot                         // visual pipeline file
@@ -36,17 +30,15 @@ You must have the following development packages installed
 |—— dstest3_pgie_config_1       // model_2 config
 ```
 
-===============================================================================
-3. CUDA_VER require:
-===============================================================================
+## 3. CUDA_VER require
 
   $ Set CUDA_VER in the MakeFile as per platform.
       For Jetson, CUDA_VER=11.4
       For x86, CUDA_VER=12.1
 
-===============================================================================
-4. Usage:
-===============================================================================
+
+## 4. Usage
+
   firstly: prepare your engine giles and put them into the ./data
   
   sencondly: according to your demand,change the relative files, includethe dstest3_config、dstest3_pgie_config_0 and dstest3_pgie_config_1
